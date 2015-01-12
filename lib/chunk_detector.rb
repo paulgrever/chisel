@@ -19,6 +19,10 @@ class ChunkDetector
 		@non_header = input.reject{|p| header?(p)}
 	end
 
+	
+
+
+
 	def italic?(input)
 		input.include?(/[*]/)
 	end
