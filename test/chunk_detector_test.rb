@@ -18,6 +18,21 @@ attr_reader :chunk_detector
 		assert results
 	end
 
+	def test_it_evalualtes_if_it_is_not_a_header
+		results = chunk_detector.header?("Paul Grever")
+		refute results
+	end
+
+	def test_it_determines_if_it_is_a_pargraph
+		results = chunk_detector.paragraph?("Paul Grever")
+		assert results
+	end
+
+	def test_it_determines_if_it_is_not_a_pargraph
+		results = chunk_detector.paragraph?("# Paul Grever")
+		refute results
+	end
+
 	def test_it_determines_if_it_is_a_header
 	
 		results = chunk_detector.header_grouper(["# Paul Grever"])
@@ -43,6 +58,8 @@ attr_reader :chunk_detector
 		results = chunk_detector.non_header_grouper(["# Paul Grever","not a header", "#header2", "still not a header"])
 		assert_equal ["not a header", "still not a header"], results 
 	end
+
+
 
 	def test_it_finds_italic_words
 		skip

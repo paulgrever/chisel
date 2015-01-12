@@ -8,6 +8,15 @@ class ChunkDetector
 		input.include?("#")
 	end
 
+	def paragraph?(input)
+		if input.include?("#")
+			return false
+		end
+		true
+	end
+
+
+
 
 	def header_grouper(input)
 		#creates a new array of the text that is a header
@@ -19,7 +28,7 @@ class ChunkDetector
 		@non_header = input.reject{|p| header?(p)}
 	end
 
-	
+
 
 
 

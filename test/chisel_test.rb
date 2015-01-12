@@ -25,6 +25,9 @@ Paragraph2")
   end
 
   def test_it_seperates_into_header_groups
+  	results = chisel.header_seperator("#Header1
+ Paragraph")
+  	assert ["Header1"], results
   end
 
 end
